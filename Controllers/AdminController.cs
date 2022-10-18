@@ -24,7 +24,10 @@ namespace WebApplication4.Controllers
                 AppUser appUser = new AppUser
                 {
                     UserName = user.Name,
-                    Email = user.Email
+                    Email = user.Email,
+                    Age= user.Age,
+                    IIN = user.IIN,
+                    Gender = user.Gender                    
                 };
 
                 IdentityResult result = await _userManager
@@ -61,11 +64,20 @@ namespace WebApplication4.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(string id, 
             string email, 
-            string password)
+            string password,
+            string IIN,
+            string Gender,
+            int Age)
         {
             AppUser user = await _userManager.FindByIdAsync(id);
             if(user!=null)
             {
+                user.IIN = IIN;
+                user.Age = Age;
+                Gender myGender;
+                Enum.TryParse(Gender, out myGender);
+                user.Gender = myGender;
+
                 if (!string.IsNullOrWhiteSpace(email))
                     user.Email = email;
                 else

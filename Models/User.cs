@@ -12,5 +12,9 @@ namespace WebApplication4.Models
 
         [Required]
         public string Password { get; set; }
+
+        public Gender Gender { get; set; }
+        public int Age { get; set; }
+        public string IIN { get; set; }
     }
 }

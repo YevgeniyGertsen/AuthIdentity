@@ -1,6 +1,8 @@
 ﻿@model Login
 
 <h1>Login</h1>
+<div class="text-danger" asp-validation-summary="All"></div>
+
 
 <form asp-action="Login" method="post">
     <input type="hidden" asp-for="ReturnUrl" />
@@ -13,7 +15,13 @@
         <lable asp-for="Password"></lable>
         <input asp-for="Password" class="form-control" />
     </div>
+    <div class="form-group">
+        Remember me? <input type="checkbox" asp-for="Remember" />
+    </div>
 
     <button class="btn btn-primary" type="submit"> 
         LogIn</button>
+
+        <a class="btn btn-info"  asp-action="GoogleLogin"> 
+        log In with Google</a>
 </form>
