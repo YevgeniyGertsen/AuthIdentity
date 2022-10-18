@@ -1,0 +1,26 @@
+﻿@model AppUser
+<h1>Update User</h1>
+<a class="btn btn-secondary"
+asp-action="Index">Back</a>
+
+<div asp-validation-summary="All" 
+class="text-danger"></div>
+
+<form asp-action="Update" method="post">
+     <div class="form-group">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" disabled/>
+    </div>
+
+     <div class="form-group">
+        <label ></label>
+        <input name="email" class="form-control"/>
+    </div>
+
+     <div class="form-group">
+        <label ></label>
+        <input name="password" class="form-control"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
